@@ -1,0 +1,24 @@
+@import '../styles/color';
+
+nav.navbar.navbar-expand-lg{
+    padding: 0;
+    .container-fluid{
+        a.navbar-brand span{
+            font-style: italic;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        #navbarSupportedContent{
+            .nav-item{
+                .nav-link{
+                    padding-top: 1.2em;
+                    padding-bottom: 1.2em;
+                    &.active{
+                        border-bottom:3px solid $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
