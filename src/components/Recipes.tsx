@@ -11,6 +11,7 @@ const Recipes = () => {
                 </ul>
             </div>
         </div>
+        
     )
 }
 

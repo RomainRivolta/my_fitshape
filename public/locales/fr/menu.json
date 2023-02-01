@@ -2,5 +2,8 @@
   "recipes": "Recettes",
   "fitness": "Fitness",
   "my training": "Mon Programme",
-  "calorie calculator":"Calculateur de calories"
+  "calorie calculator":"Calculateur de calories",
+  "settings": "Paramètres",
+  "profile": "Profil",
+  "sign out": "Déconnexion"
 }

@@ -2,5 +2,8 @@
   "recipes": "Recipes",
   "fitness": "Fitness",
   "my training": "My Training",
-  "calorie calculator":"Calorie calculator"
+  "calorie calculator":"Calorie calculator",
+  "settings": "Settings",
+  "profile": "profile",
+  "sign out": "sign out"
 }
