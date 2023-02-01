@@ -3,6 +3,7 @@ import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import NotFound from './components/NotFound';
+import Recipes from './components/Recipes';
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <Menu />
       <Routes>
         <Route path='/' />
-        <Route path='/recipes' />
+        <Route path='/recipes' element={<Recipes />} />
         <Route path='/mytraining' />
         <Route path='/fitness' />
         <Route path='/caloriecalculator' />
