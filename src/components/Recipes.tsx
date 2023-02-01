@@ -3,17 +3,17 @@ import { useTranslation } from "react-i18next";
 import "./Recipes.scss";
 
 const Recipes = () => {
-    const { t } = useTranslation(['recipes','']);
+    const { t } = useTranslation(['recipes','main']);
     return (
         <div className="container">
             <div className="row">
                 <div className="recipes-grid order-lg-2 col-xl-9 col-lg-8">
                     <header>
                         <div className="me-3 mb-3">
-                            {(t('showing'))}
-                            <strong>1-12</strong>
-                            {(t('of'))}
-                            <strong>158</strong>
+                            {(t('showing'))}&nbsp;
+                            <strong>1-12&nbsp;</strong>
+                            {(t('of'))}&nbsp;
+                            <strong>158&nbsp;</strong>
                             {(t('recipes'))}
                         </div>
                         <div className="me-3 mb-3">
@@ -35,7 +35,9 @@ const Recipes = () => {
                         <div className="collapse show" id="filter-recipes">
                             <h6 className="sidebar-heading d-none d-lg-block">{t('meal')}</h6>
                             <form>
-                                
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" />
+                                </div>
                             </form>
                         </div>
                     </div>

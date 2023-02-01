@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import NotFound from './components/NotFound';
 import Recipes from './components/Recipes';
+import SignIn from './components/SignIn';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='/mytraining' />
         <Route path='/fitness' />
         <Route path='/caloriecalculator' />
+        <Route path='/signin' element={<SignIn />}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Fragment>
