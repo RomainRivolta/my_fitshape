@@ -27,7 +27,7 @@ const Recipes = () => {
 
                     </div>
                 </div>
-                <div className="sidebar col-xl-3 order-lg-1">
+                {/* <div className="sidebar col-xl-3 order-lg-1">
                     <div className="sidebar-block px-3 px-lg-0 me-lg-4">
                         <a className="d-lg-none block-toggler" data-bs-toggle="collapse" data-bs-target="filter-recipes" aria-expanded="true">
                             {t('filter by meal')}
@@ -41,8 +41,8 @@ const Recipes = () => {
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> */}
+            </div> 
         </div>
     )
 }
