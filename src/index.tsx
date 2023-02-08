@@ -1,13 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import {AuthProvider} from './context/userAuthContext';
 import "./i18n";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
+// import "./index.scss";
+// import "./styles/themes/_theme.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import "./styles/main.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -62,7 +62,7 @@ const SignIn = () => {
                 onChange={handleChange}
               />
             </div>
-            <Button type="submit" label={t("sign in")} />
+            <Button type="submit">{t("sign in")}</Button>
           </form>
           <hr className="hr-text" data-content="OR" />
         </div>

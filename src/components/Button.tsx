@@ -3,17 +3,17 @@ import React from "react";
 
 type Props = {
     type: any;
-    label: string;
+    children: string;
     className?: string;
 }
 
 const Button = (props: Props) => {
-    const {type, label, className} = props;
+    const {type, children, className} = props;
 
-    const merged = clsx("btn",className);
+    const merged = clsx("btn btn-primary",className);
 
     return(
-        <button className={merged} type={type || 'button'}>{label}</button>
+        <button className={merged} type={type || 'button'}>{children}</button>
     );
 }
 

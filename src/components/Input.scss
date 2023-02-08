@@ -1,0 +1,9 @@
+input{
+    border-color: green;
+    &:invalid{
+        border-color: red ;
+        &:focus{
+            outline-color: red;
+        }    
+    }
+}

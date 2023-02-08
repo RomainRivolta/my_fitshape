@@ -1,11 +1,13 @@
 // import { createUserWithEmailAndPassword } from "@firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { auth } from "../../firebase";
 import { AuthContext } from "../../context/userAuthContext";
 
-import "./SignIn.scss";
 import Button from "../../components/Button";
+import Input from "../../components/Input";
+import CheckList from "../../components/CheckList";
+import {atLetters, passwordValidRegex} from "../../utils/validationRule";
 
 interface IData {
   firstname: string;
@@ -15,14 +17,16 @@ interface IData {
   confirmPassword: string;
 }
 
-type ErrorForm = {
-  firstname?: string;
-  lastname?: string;
+interface ErrorForm {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 }
 
 const SignUp = () => {
   const { t } = useTranslation("auth");
-
   const data = {
     lastname: "",
     firstname: "",
@@ -33,20 +37,58 @@ const SignUp = () => {
 
   const [signinData, setSigninData] = useState(data);
   const [error, setError] = useState<ErrorForm>();
-  const {signUp} = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
+
+  const { firstname, lastname, email, password, confirmPassword } = signinData;
+
+  const validName = (value: string): boolean => {
+    let regex = atLetters;
+    return regex.test(value);
+  }
 
   const isValid = () => {
-    let err : ErrorForm = {};
-    if(signinData.firstname === ''){
-      alert("erroir ")
-      err.firstname = t('field required')!;  
-    } 
-    if(signinData.lastname === ''){
-      err!.lastname = t('field required');
-    }
-    
+    let err: ErrorForm = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    };
 
-    setError({...err});
+    if (firstname === '') {
+      err.firstname = t('field required');
+    } else {
+      if (!validName(firstname)) {
+        err.firstname = t('fisrt name invalid name');
+      }
+    }
+    if (lastname === '') {
+      err.lastname = t('field required');
+    } else {
+      if (!validName(firstname)) {
+        err.lastname = t('last name invalid name');
+      }
+    }
+    if (email === '') {
+      err.email = t('field required');
+    }
+    if (password === '') {
+      err.password = t('field required');
+    } else {
+      let regex = passwordValidRegex;
+      if (regex.test(password)) {
+        err.password = t('');
+      }
+    }
+    if (confirmPassword === '') {
+      err.confirmPassword = t('field required');
+    } else {
+      if (password !== confirmPassword) {
+        err.confirmPassword = t('password does not match');
+      }
+    }
+    setError({ ...err });
+    console.log(err);
     return false;
   }
 
@@ -54,15 +96,15 @@ const SignUp = () => {
     setSigninData({ ...signinData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit =  async (e: any) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const { email, password } = signinData;
-    
+
     try {
 
-      if(isValid()){
+      if (isValid()) {
         alert("valid")
-        await signUp(email,password);
+        await signUp(email, password);
 
       }
 
@@ -70,95 +112,37 @@ const SignUp = () => {
       alert("error")
       console.log(error);
       setError(error);
-      // setSigninData({...data});
+      setSigninData({ ...data });
     }
   };
 
-  const { firstname, lastname, email, password, confirmPassword } = signinData;
-
-  // gestion erreurs
-  // const errorMsg: string = error !== '' && <span>{error.message}</span>;
 
   return (
     <div className="container pt-3">
       <div className="row">
         <div className="col"></div>
         <div className="col">
+        <i className="bi bi-0-circle"></i>Home<i className="bi bi-x-circle"></i>
           <h2>{t('sign up')}</h2>
-          <form className="row g-3" onSubmit={handleSubmit} noValidate>
-            <div className="col-lg-6">
-              <label htmlFor="firstname" className="form-label">
-                {t("firstname")}
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="firstname"
-                name="firstname"
-                value={firstname}
-                required
-                onChange={handleChange}
-              />
-              <span>{error?.firstname}</span>
+          <form onSubmit={handleSubmit} className="row g-3" noValidate>
+            <div className="col-lg-6 col-sm-12">
+              <Input id="firstname" className="required" label={t("firstname")} name="firstname" type="text" onChange={handleChange} value={firstname} validator={error?.firstname} required />
             </div>
-            <div className="col-lg-6">
-              <label htmlFor="lastname" className="form-label">
-                {t("lastname")}
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="lastname"
-                name="lastname"
-                value={lastname}
-                required
-                onChange={handleChange}
-              />
-              <span>{error?.lastname}</span>
+            <div className="col-lg-6 col-sm-12">
+              <Input id="lastname" className="required" label={t("lastname")} name="lastname" type="text" onChange={handleChange} value={lastname} required />
             </div>
             <div className="col-12">
-              <label htmlFor="email" className="form-label">
-                {t("email")}
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                value={email}
-                required
-                onChange={handleChange}
-              />
+              <Input id="email" className="required" label={t("email")} name="email" type="email" onChange={handleChange} value={email} required />
             </div>
-            <div className="col-lg-6">
-              <label htmlFor="password" className="form-label">
-                {t("password")}
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                name="password"
-                value={password}
-                required
-                onChange={handleChange}
-              />
+            <div className="col-lg-6 col-sm-12">
+              <Input id="password" className="required" label={t("password")} name="password" type="password" onChange={handleChange} value={password} required />
             </div>
-            <div className="col-lg-6">
-              <label htmlFor="confirmPassword" className="form-label">
-                {t("confirm password")}
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={confirmPassword}
-                required
-                onChange={handleChange}
-              />
+            <div className="col-lg-6 col-sm-12">
+              <Input id="confirmPassword" className="required" label={t("confirm password")} name="confirmPassword" type="password" onChange={handleChange} value={confirmPassword} required />
             </div>
-            <Button type="submit" label={t('sign up')} />              
+            <CheckList value={password} />
+
+            <Button type="submit">{t('sign up')}</Button>
           </form>
           <hr className="hr-text" data-content="OR" />
         </div>

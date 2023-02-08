@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+@import './_utilities/color';
+
+@import './themes/theme';
+
+
+//components
+@import "../components/Menu.scss";
+@import "../components/Checklist.scss";
+@import "../components/Input.scss";
+
+//pages
+@import "../pages/NotFound.scss";
+@import "../pages/Auth/SignUp.scss";
+@import "../pages/Recipes/Recipes.scss";
+
+@import '../index.scss';
+
+@import "~bootstrap/scss/bootstrap";

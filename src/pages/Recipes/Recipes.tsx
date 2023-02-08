@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import "./Recipes.scss";
 
 const Recipes = () => {
     const { t } = useTranslation(['recipes','main']);
