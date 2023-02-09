@@ -11,13 +11,18 @@ interface IProps extends React.HTMLProps<HTMLInputElement> {
 
 const Input = (props: IProps) => {
     const { id, label, validator, className, ...rest } = props;
-    const merged = clsx("form-label",className);
+    const merged = clsx("form-label", className);
 
     return (
         <Fragment>
             <label htmlFor={id} className={merged}>{label}</label>
-            <input id={id} className="form-control" {...rest} />
-            {validator && (<p className="text-danger">{validator}</p>)}
+            <input id={id} className={`form-control ${validator ? 'is-invalid' : ''}`} {...rest} />
+
+            {validator && (
+                <div className="invalid-feedback">
+                    {validator}
+                </div>
+            )}
         </Fragment>
     );
 }
