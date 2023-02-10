@@ -140,7 +140,7 @@ const SignUp = () => {
                 <div className="col-lg-6">
                   <CheckList value={password} />
                 </div>
-                <Button type="submit" className="">{t('sign up')}</Button>
+                <Button type="submit" className="btn-primary">{t('sign up')}</Button>
               </form>
               <hr className="hr-text" data-content="OR" />
 

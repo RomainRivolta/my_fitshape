@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthContext } from "../../context/userAuthContext";
 import Button from "../../components/Button";
@@ -80,7 +80,7 @@ const SignIn = () => {
                 <div className="col-12">
                   <Input id="password" className="required" label={t("password")} name="password" type="password" onChange={handleChange} value={password} validator={error?.password} required />
                 </div>
-                <Button type="submit" className="">{t('sign in')}</Button>
+                <Button type="submit" className="btn-primary">{t('sign in')}</Button>
               </form>
               <hr className="hr-text" data-content="OR" />
 

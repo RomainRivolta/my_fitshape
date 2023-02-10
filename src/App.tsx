@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
-import Menu from "./components/Menu";
+import Menu from "./components/Nav";
 import NotFound from "./pages/NotFound";
 import Recipes from "./pages/Recipes/Recipes";
 import SignUp from "./pages/Auth/SignUp";

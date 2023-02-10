@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React from "react";
 
 type Props = {
-    type: any;
+    type?: any;
     children: string;
     className?: string;
 }
@@ -10,7 +10,7 @@ type Props = {
 const Button = (props: Props) => {
     const {type, children, className} = props;
 
-    const merged = clsx("btn btn-primary",className);
+    const merged = clsx("btn",className);
 
     return(
         <button className={merged} type={type || 'button'}>{children}</button>
