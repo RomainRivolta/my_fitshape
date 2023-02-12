@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { AuthContext } from "../../context/userAuthContext";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import { Link } from "react-router-dom";
+import Account from "../../components/Account";
 
 interface IData {
   email: string;
@@ -28,22 +30,21 @@ const SignIn = () => {
 
   const { email, password } = signupData;
 
-
   const isValid = () => {
     let err: ErrorForm = {
       email: "",
       password: "",
     };
 
-    if (email === '') {
-      err.email = t('field required');
+    if (email === "") {
+      err.email = t("field required");
     }
-    if (password === '') {
-      err.password = t('field required');
-    }  
+    if (password === "") {
+      err.password = t("field required");
+    }
     setError({ ...err });
     return Object.keys(error!).length;
-  }
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -62,33 +63,60 @@ const SignIn = () => {
     setSignupData({ ...signupData, [e.target.name]: e.target.value });
   };
 
-
   return (
-    <div className="container pt-3">
-      <div className="card mb-3 shadow-lg border-0">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <img src="https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODJ8fGZpdG5lc3MlMjBlcXVpcG1lbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" className="img-fluid rounded-start" alt="..." />
-          </div>
-          <div className="col-md-8 ps-4">
-            <div className="card-body">
-              <h3 className="card-title">{t('sign in')}</h3>
-              <form onSubmit={handleSubmit} className="row g-3" noValidate>
-                <div className="col-12">
-                  <Input id="email" className="required" label={t("email")} name="email" type="email" onChange={handleChange} value={email} validator={error?.email} required />
-                </div>
-                <div className="col-12">
-                  <Input id="password" className="required" label={t("password")} name="password" type="password" onChange={handleChange} value={password} validator={error?.password} required />
-                </div>
-                <Button type="submit" className="btn-primary">{t('sign in')}</Button>
-              </form>
-              <hr className="hr-text" data-content="OR" />
-
-            </div>
-          </div>
+    <Account>
+      <form onSubmit={handleSubmit} noValidate>
+        <h1 className="mb-2 text-center h3 ">{t("sign in")}</h1>
+        <p className="mb-4 text-center">
+          {t("sign in using your fitshape credentials")}.
+        </p>
+        <div className="col-12">
+          <Input
+            id="email"
+            className="required"
+            label={t("email")}
+            name="email"
+            type="email"
+            onChange={handleChange}
+            value={email}
+            validator={error?.email}
+            required
+          />
         </div>
+        <div className="col-12">
+          <Input
+            id="password"
+            className="required"
+            label={t("password")}
+            name="password"
+            type="password"
+            onChange={handleChange}
+            value={password}
+            validator={error?.password}
+            required
+          />
+        </div>
+        <div className="d-grid">
+          <Button type="submit" className="btn-primary">
+            {t("sign in")}
+          </Button>
+        </div>
+      </form>
+      <div className="d-xxl-flex justify-content-between mt-4">
+        <p className="font-14 mb-0 mt-0">
+          <Link to="/reset-password">{t("forgot password")}</Link>
+        </p>
       </div>
-    </div>
+      <div className="d-xxl-flex justify-content-between mt-4">
+        <p className="text-muted font-14 mb-0">
+          {t("don't have an account")}
+          <Link to="/signup" className="ps-2">
+            {t("sign up")}
+          </Link>
+        </p>
+      </div>
+      <hr className="hr-text" data-content="OR" />
+    </Account>
   );
 };
 

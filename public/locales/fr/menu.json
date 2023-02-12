@@ -3,9 +3,11 @@
   "fitness": "Fitness",
   "my training": "Mon Programme",
   "calorie calculator":"Calculateur de calories",
+  "blog": "Blog",
   "settings": "Paramètres",
   "profile": "Profil",
   "sign up": "S'inscrire",
   "sign in": "Se connecter",
-  "sign out": "Déconnexion"
+  "sign out": "Déconnexion",
+  "exercices": "Exercices"
 }

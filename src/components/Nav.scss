@@ -1,6 +1,6 @@
 // @import '../styles/color';
 
-nav.navbar.navbar-expand-lg{
+nav.navbar.navbar-expand-xl{
     padding: 0;
     .container-fluid{
         a.navbar-brand span{
@@ -13,9 +13,9 @@ nav.navbar.navbar-expand-lg{
                 .nav-link{
                     padding-top: 1.2em;
                     padding-bottom: 1.2em;
-                    &.active{
-                        border-bottom:3px solid $primary-color;
-                    }
+                    // &.active{
+                    //     border-bottom:3px solid $primary-color;
+                    // }
                 }
             }
         }
