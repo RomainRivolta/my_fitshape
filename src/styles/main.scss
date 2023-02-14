@@ -4,17 +4,19 @@
 
 @import './themes/theme';
 
+@import "~bootstrap/scss/bootstrap";
 
 //components
 @import "../components/Nav.scss";
 @import "../components/Checklist.scss";
 @import "../components/Input.scss";
+@import "../components/Cover.scss";
 
 //pages
 @import "../pages/NotFound/NotFound.scss";
 @import "../pages/Auth/SignUp.scss";
 @import "../pages/Recipes/Recipes.scss";
+@import "../pages/Home/Home.scss";
 
 @import '../index.scss';
 
-@import "~bootstrap/scss/bootstrap";

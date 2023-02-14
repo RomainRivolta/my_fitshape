@@ -1,12 +1,13 @@
 import React, { Fragment, useContext } from "react";
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
-import Menu from "./components/Nav";
+import Nav from "./components/Nav";
 import NotFound from "./pages/NotFound/NotFound";
 import Recipes from "./pages/Recipes/Recipes";
 import Protected from "./components/Protected";
 import { AuthContext } from "./context/userAuthContext";
 import ResetPassword from "./pages/Auth/ResetPassword";
+import Home from "./pages/Home/Home";
 
 const SignUp = React.lazy(() => import("./pages/Auth/SignUp"));
 const SignIn = React.lazy(() => import("./pages/Auth/SignIn"));
@@ -17,10 +18,10 @@ const App = () => {
 
   return (
     <Fragment>
-      <Menu />
+      <Nav />
       <Routes>
-        <Route path="/" />
-        <Route path="/recipes" element={<p>Recipes</p>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/recipes" element={<Recipes />} />
         <Route
           path="/mytraining"
           element={
@@ -60,7 +61,7 @@ const App = () => {
           </React.Suspense>
         }/>
         <Route path="/reset-password" element={<ResetPassword/>} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} /> 
       </Routes>
     </Fragment>
   );

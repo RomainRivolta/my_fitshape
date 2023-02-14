@@ -1,12 +1,12 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/userAuthContext";
 const AuthNav = () => {
   const { t } = useTranslation("menu");
   const { user } = useContext(AuthContext);
 
-  return user ? 
+  return user ?
     <div className="dropdown text-end">
       <a
         className="dropdown-toggle text-decoration-none d-block"
@@ -44,15 +44,29 @@ const AuthNav = () => {
         </li>
       </ul>
     </div>
-   : (
-    <div className="nav flex-nowrap align-items-center">
-      <div className="nav-item d-none d-md-block">
-      {/* <a href="#" className="btn btn-sm btn-primary mb-0 mx-2">Get Quote!</a> */}
-        <Link className="btn btn-sm btn-outline-primary mx-2" to="/signin">{t("sign in")}</Link>
-        <Link className="btn btn-sm btn-primary" to="/signup">{t("sign up")}</Link>
-      </div>
-    </div>
-  );
+    : (
+      <Fragment>
+
+        <div className="nav-item d-none d-lg-block">
+          <Link className="btn btn-sm btn-outline-primary mx-2 " to="/signin">{t("sign in")}</Link>
+          <Link className="btn btn-sm btn-primary" to="/signup">{t("sign up")}</Link>
+        </div>
+        <ul className="d-lg-none navbar-nav ms-auto me-lg-3">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="signin">
+              {t("sign in")}
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/signup">
+            {t("sign up")}
+            </NavLink>
+          </li>
+        </ul>
+        
+      </Fragment>
+
+    );
 };
 
 export default AuthNav;

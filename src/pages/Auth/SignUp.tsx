@@ -185,9 +185,9 @@ const SignUp = (props: any) => {
             required
           />
         </div>
-      {/*   <div className="col-lg-6">
+        <div className="col-lg-6">
           <CheckList value={password} />
-        </div>*/}
+        </div>
         <div className="d-grid">
           <Button type="submit" className="btn-primary">
             {t("sign up")}

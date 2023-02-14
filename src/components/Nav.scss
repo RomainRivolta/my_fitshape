@@ -1,24 +1,64 @@
 // @import '../styles/color';
+@supports
+(selector(html:has(body))){
+  header.bg-transparent{
+    li.nav-item a.nav-link{
+      color: #fff;
+    }
+  }
+  header.bg-body{
+    li.nav-item a.nav-link{
+      color: red;
+    }
+  }
+}
 
-nav.navbar.navbar-expand-xl{
-    padding: 0;
-    .container-fluid{
-        a.navbar-brand span{
-            font-style: italic;
-            font-size: 22px;
-            font-weight: 700;
+header.fixed-top.border-top.border-primary {
+    border-top: 3px solid $primary-color !important;
+    @include media-breakpoint-down(md){
+      background: #fff !important; 
+    }
+  .container-fluid {
+    nav.navbar {
+      a.navbar-brand span {
+        font-style: italic;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      div#navbarSupportedContent{
+        @include media-breakpoint-down(md) {
+          &.collapse.navbar-collapse{
+            background: #fff !important;
+          }
         }
-        #navbarSupportedContent{
-            .nav-item{
-                .nav-link{
-                    padding-top: 1.2em;
-                    padding-bottom: 1.2em;
-                    // &.active{
-                    //     border-bottom:3px solid $primary-color;
-                    // }
+        ul.navbar-nav{
+            li.nav-item a.nav-link{
+              @include media-breakpoint-down(md){
+                color: #000;
+              }
+                &:hover{
+                    color: $primary-color;
+                }
+                // &.active{
+                //     color: $primary-color;
+                // } 
+            }
+            li.nav-item.dropdown{
+                &:hover .dropdown-menu.dropdown-menu-arrow{
+                    display: block;
+                }
+                .dropdown-menu.dropdown-menu-arrow::before{
+                    background: #fff;
+                    content: "";
+                }
+                a.nav-link.dropdown-toggle{
+                    &::after{
+                        display: none;
+                    }
                 }
             }
         }
+      }
     }
+  }
 }
-
