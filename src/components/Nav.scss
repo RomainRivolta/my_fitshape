@@ -9,10 +9,10 @@ $feature-bg: #ffd803;
     }
     .nav-item {
       .btn-signin {
-        @include button-outline-variant($primary-light, darken($feature-bg, 3%));
+        @include button-outline-variant($light);
       }
       .btn-signup {
-        @include button-variant($feature-bg, darken($feature-bg, 3%));
+        @include button-variant($light);
       }
     }
   }
@@ -24,10 +24,10 @@ $feature-bg: #ffd803;
     }
     .nav-item {
       .btn-signin {
-        @include button-outline-variant($primary-color, darken($feature-bg, 3%));
+        @include button-outline-variant($primary);
       }
       .btn-signup {
-        @include button-variant($feature-bg, darken($feature-bg, 3%));
+        @include button-variant($primary);
       }
     }
   }
