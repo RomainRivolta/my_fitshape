@@ -1,4 +1,5 @@
-// @import '../styles/color';
+$feature-bg: #ffd803;
+
 @supports (selector(html:has(body))) {
   header.bg-transparent {
     .navbar-nav {
@@ -6,9 +7,11 @@
         color: #fff;
       }
     }
-
     .nav-item {
       .btn-signin {
+        @include button-outline-variant($feature-bg, darken($feature-bg, 3%));
+      }
+      .btn-signup {
         @include button-variant($feature-bg, darken($feature-bg, 3%));
       }
     }
@@ -17,6 +20,14 @@
     .navbar-nav {
       li.nav-item a.nav-link {
         color: $dark;
+      }
+    }
+    .nav-item {
+      .btn-signin {
+        @include button-outline-variant($feature-bg, darken($feature-bg, 3%));
+      }
+      .btn-signup {
+        @include button-variant($feature-bg, darken($feature-bg, 3%));
       }
     }
   }
