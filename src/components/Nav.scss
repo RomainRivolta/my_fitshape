@@ -2,13 +2,18 @@
 @supports
 (selector(html:has(body))){
   header.bg-transparent{
-    li.nav-item a.nav-link{
-      color: #fff;
+    .navbar-nav{
+      li.nav-item a.nav-link{
+        color: #fff;
+      }
     }
+   
   }
   header.bg-body{
-    li.nav-item a.nav-link{
-      color: $dark;
+    .navbar-nav{
+      li.nav-item a.nav-link{
+        color: $dark;
+      }
     }
   }
 }

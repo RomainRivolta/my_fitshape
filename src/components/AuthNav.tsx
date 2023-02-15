@@ -48,8 +48,10 @@ const AuthNav = () => {
       <Fragment>
 
         <div className="nav-item d-none d-lg-block">
-          <Link className="btn btn-sm btn-outline-primary mx-2 " to="/signin">{t("sign in")}</Link>
-          <Link className="btn btn-sm btn-primary" to="/signup">{t("sign up")}</Link>
+          {/* <Link className="btn btn-sm btn-outline-primary mx-2 " to="/signin">{t("sign in")}</Link> */}
+          <Link className="btn btn-sm mx-2 " to="/signin">{t("sign in")}</Link>
+          {/* <Link className="btn btn-sm btn-primary" to="/signup">{t("sign up")}</Link> */}
+          <Link className="btn btn-sm" to="/signup">{t("sign up")}</Link>
         </div>
         <ul className="d-lg-none navbar-nav ms-auto me-lg-3">
           <li className="nav-item">
