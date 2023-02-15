@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Nav from "../../components/Nav";
 
 const Blog = () => {
     return(
-        <div className="container"></div>
+        <Fragment>
+          <Nav />
+            
+        </Fragment>
     )
 }
 

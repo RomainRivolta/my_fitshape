@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 
-const Header = (props: any, { children }: { children: ReactNode }) => {
+const Cover = (props: any, { children }: { children: ReactNode }) => {
     const cover: string = props.img;
     const homeDivStyle = {
         backgroundImage: `url(${process.env.PUBLIC_URL}/img/${cover}.jpg)`,
@@ -29,4 +29,4 @@ const Header = (props: any, { children }: { children: ReactNode }) => {
     );
 }
 
-export default Header;
+export default Cover;

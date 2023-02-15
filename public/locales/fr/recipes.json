@@ -2,5 +2,14 @@
     "filter by meal":"Filtrer par repas",
     "meal": "Repas",
     "showing": "Affichage",
-    "recipes": "Recettes"
+    "recipes": "Recettes",
+    "food currents":"Courants alimentaires",
+    "category":"Categorie",
+    "breakfast": "Petit-déjeuner",
+    "low carb": "Faible en glucides",
+    "post training": "Post-entraînement",
+    "snacks": "Collations",
+    "vegan": "Végan",
+    "vegetarian":"Végétarien",
+    "gluten free":"Sans gluten"
 }
