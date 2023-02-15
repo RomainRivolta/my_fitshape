@@ -1,5 +1,7 @@
+$feature-bg: #ffd803;
+
 .nav-item{
-    .btn{
-        
+    .btn-signin{
+        @include button-variant($feature-bg, darken($feature-bg, 3%));
     }
 }
