@@ -1,17 +1,21 @@
 // @import '../styles/color';
-@supports
-(selector(html:has(body))){
-  header.bg-transparent{
-    .navbar-nav{
-      li.nav-item a.nav-link{
+@supports (selector(html:has(body))) {
+  header.bg-transparent {
+    .navbar-nav {
+      li.nav-item a.nav-link {
         color: #fff;
       }
     }
-   
+
+    .nav-item {
+      .btn-signin {
+        @include button-variant($feature-bg, darken($feature-bg, 3%));
+      }
+    }
   }
-  header.bg-body{
-    .navbar-nav{
-      li.nav-item a.nav-link{
+  header.bg-body {
+    .navbar-nav {
+      li.nav-item a.nav-link {
         color: $dark;
       }
     }
@@ -19,10 +23,10 @@
 }
 
 header.fixed-top.border-top.border-primary {
-    border-top: 3px solid $primary-color !important;
-    @include media-breakpoint-down(md){
-      background: #fff !important; 
-    }
+  border-top: 3px solid $primary-color !important;
+  @include media-breakpoint-down(md) {
+    background: #fff !important;
+  }
   .container-fluid {
     nav.navbar {
       a.navbar-brand span {
@@ -30,38 +34,38 @@ header.fixed-top.border-top.border-primary {
         font-size: 22px;
         font-weight: 700;
       }
-      div#navbarSupportedContent{
+      div#navbarSupportedContent {
         @include media-breakpoint-down(md) {
-          &.collapse.navbar-collapse{
+          &.collapse.navbar-collapse {
             background: #fff !important;
           }
         }
-        ul.navbar-nav{
-            li.nav-item a.nav-link{
-              @include media-breakpoint-down(md){
-                color: #000;
+        ul.navbar-nav {
+          li.nav-item a.nav-link {
+            @include media-breakpoint-down(md) {
+              color: #000;
+            }
+            &:hover {
+              color: $primary-color;
+            }
+            // &.active{
+            //     color: $primary-color;
+            // }
+          }
+          li.nav-item.dropdown {
+            &:hover .dropdown-menu.dropdown-menu-arrow {
+              display: block;
+            }
+            .dropdown-menu.dropdown-menu-arrow::before {
+              background: #fff;
+              content: "";
+            }
+            a.nav-link.dropdown-toggle {
+              &::after {
+                display: none;
               }
-                &:hover{
-                    color: $primary-color;
-                }
-                // &.active{
-                //     color: $primary-color;
-                // } 
             }
-            li.nav-item.dropdown{
-                &:hover .dropdown-menu.dropdown-menu-arrow{
-                    display: block;
-                }
-                .dropdown-menu.dropdown-menu-arrow::before{
-                    background: #fff;
-                    content: "";
-                }
-                a.nav-link.dropdown-toggle{
-                    &::after{
-                        display: none;
-                    }
-                }
-            }
+          }
         }
       }
     }
