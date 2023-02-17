@@ -8,6 +8,7 @@ import { AuthContext } from "./context/userAuthContext";
 import ResetPassword from "./pages/Auth/ResetPassword";
 import Home from "./pages/Home/Home";
 import Layout from "./components/Layout";
+import Spinner from "./components/Spinner";
 
 const SignUp = React.lazy(() => import("./pages/Auth/SignUp"));
 const SignIn = React.lazy(() => import("./pages/Auth/SignIn"));
@@ -23,7 +24,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/recipes" element={
-            <React.Suspense fallback={<>...</>}>
+            <React.Suspense fallback={<Spinner />}>
               <Recipes />
             </React.Suspense>
           }

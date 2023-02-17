@@ -1,5 +1,15 @@
 {
     "not found 04":"La page est introuvable",
     "home page":"Page accueil",
-    "off": "de"
+    "off": "de",
+    "previous":"Précédent",
+    "next":"Suivant",
+    "back to home": "Revenir à l'accueil",
+    "showing": "Afficher",
+    "show": "Montrer",
+    "all": "Tout",
+    "default": "Défaut",
+    "rating": "Notation",
+    "popularity":"Popularité",
+    "new": "Nouveau"
 }

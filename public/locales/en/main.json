@@ -1,5 +1,15 @@
 {
     "not found 404":"The Page can't be found",
     "home page":"Home page",
-    "off": "off"
+    "off": "off",
+    "previous":"Previous",
+    "next":"Next",
+    "back to home": "Back to home",
+    "showing": "Showing",
+    "show": "Show",
+    "all": "All",
+    "default": "Default",
+    "rating": "Rating",
+    "popularity":"Popularity",
+    "new": "New"
 }

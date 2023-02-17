@@ -1,15 +1,33 @@
-import React, { Fragment } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
+import { faL } from "@fortawesome/free-solid-svg-icons";
+import { FormEvent, Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Card from "../../components/Card";
 import Cover from "../../components/Cover";
 import FilterCheckbox from "../../components/FilterCheckbox";
 import FilterText from "../../components/FilterText";
-import Layout from "../../components/Layout";
-import Nav from "../../components/Nav";
+import Pagination from "../../components/Pagination";
+import SelectFilter from "../../components/SelectFilter";
 import { IFilterDataCheckbox, IFilterDataText } from "../../utils/filterInterface";
 
+interface IRecipes {
+    raw: string;
+}
+
 const Recipes = () => {
+    const perPage: number = 10;
+    const perIncreasePage: number = 20;
     const { t } = useTranslation(['recipes', 'main']);
+    const [recipes, setRecipes] = useState<IRecipes[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [recipesPerPage, setRecipesPerPage] = useState(perPage);
+
+    const indexOfLastRecipe: number = currentPage * recipesPerPage;
+    const indexOfFirstRecipe: number = indexOfLastRecipe - recipesPerPage;
+    const nPages: number = Math.ceil(recipes.length / recipesPerPage)
+    const currentRecipes: IRecipes[] = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
     const filterCategory: IFilterDataText[] = [
         {
@@ -48,6 +66,59 @@ const Recipes = () => {
         }
     ];
 
+    const getRecipes = async () => {
+        setIsLoading(true);
+        const res: Response = await fetch(`${process.env.REACT_APP_BACK_END_API}/recipe/list`);
+        const recipesData: IRecipes[] = await res.json();
+        setRecipes(recipesData);
+        setIsLoading(false);
+    }
+
+    const handlePerPage = (perPage: number) => {
+        setRecipesPerPage(perPage);
+    }
+
+    useEffect(() => {
+        getRecipes();
+    }, [])
+
+    const renderRecipes = (
+        <Fragment>
+            <div className="recipe-grid-header d-flex justify-content-between text-body fw-light">
+                <div className="me-3 mb-3">
+                    {t('showing', { ns: 'main' })}&nbsp;
+                    <span className="fw-semibold">1-{recipesPerPage}&nbsp;</span>
+                    {t('off')}&nbsp;
+                    <span className="fw-semibold">{recipes.length}&nbsp;</span>
+                    {t('recipes').toLowerCase()}
+                </div>
+                <div className="me-3 mb-3">
+                    <span className="me-2">{t('show', { ns: 'main' }).toLowerCase()}</span>
+                    <FilterButton  onPerPageClick={() => handlePerPage()}l dataPerPage={recipesPerPage} perIncreasePage={perIncreasePage} total={recipes.length} perPage={perPage}/>
+
+                    <div className="btn-group btn-group-sm" role="group">
+                        <button type="button" className={`btn btn-outline-primary ${ recipesPerPage === perPage ? 'active' :''}`} onClick={() => handlePerPage(perPage)}>{perPage}</button>
+                        <button type="button" className={`btn btn-outline-primary ${ recipesPerPage === perIncreasePage ? 'active' :''}`} onClick={() => handlePerPage(perIncreasePage)}>{perIncreasePage}</button>
+                        <button type="button" className={`btn btn-outline-primary ${ recipesPerPage === recipes.length ? 'active' :''}`} onClick={() => handlePerPage(recipes.length)}>{t('all', { ns: 'main' })}</button>
+                    </div>
+                </div>
+                <div className="me-3 mb-3">
+                    <SelectFilter />
+                </div>
+            </div>
+            <div className="row g-4">
+                {currentRecipes.map((recipe, index) =>
+                    <div className="col-lg-4 col-xs-6" key={index}>
+                        <Card imgsrc={recipe.raw}></Card>
+                    </div>
+                )}
+            </div>
+            <div className="row pt-4">
+                <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            </div>
+        </Fragment>
+
+    )
 
     return (
         <Fragment>
@@ -55,21 +126,14 @@ const Recipes = () => {
             <div className="container pt-5">
                 <div className="row">
                     <div className="recipe-grid order-lg-2 col-xl-9 col-lg-8">
-                        <div className="recipe-grid-header">
-                            <div className="me-3 mb-3">
-                                {t('showing')}&nbsp;
-                                <strong>1-15&nbsp;</strong>
-                                {t('off')}&nbsp;
-                                <strong>300&nbsp;</strong>
-                                {t('recipes')}
+                        {isLoading ?
+                            <div className="text-center">
+                                <div className="spinner-grow text-primary" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
                             </div>
-                            <div className="me-3 mb-3"></div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-4 col-xs-6">
-                                <Card />
-                            </div>
-                        </div>
+                            : renderRecipes
+                        }
                     </div>
                     <div className="sidebar col-xl-3 order-lg-1">
                         <FilterText title={t('categories')} data={filterCategory} />

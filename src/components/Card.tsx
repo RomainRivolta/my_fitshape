@@ -1,9 +1,14 @@
 import React from "react";
 
-const Card = () => {
+interface ICard{
+    imgsrc:string;
+}
+
+const Card = (props: ICard) => {
+    const {imgsrc} = props;
     return(
-        <a className="card">
-             <img src="..." className="card-img-top" alt="..."/>
+        <a className="card h-100">
+             <img src={imgsrc} className="card-img-top" alt="..."/>
              <div className="card-body">
                 
              </div>
