@@ -9,6 +9,7 @@ import FilterCheckbox from "../../components/FilterCheckbox";
 import FilterText from "../../components/FilterText";
 import Pagination from "../../components/Pagination";
 import SelectFilter from "../../components/SelectFilter";
+import ButtonGroup from "../../components/ButtonGroup";
 import { IFilterDataCheckbox, IFilterDataText } from "../../utils/filterInterface";
 
 interface IRecipes {
@@ -16,8 +17,8 @@ interface IRecipes {
 }
 
 const Recipes = () => {
-    const perPage: number = 10;
-    const perIncreasePage: number = 20;
+    const perPage: number = Number(process.env.REACT_APP_PER_PAGE);
+    // const perIncreasePage: number = 20;
     const { t } = useTranslation(['recipes', 'main']);
     const [recipes, setRecipes] = useState<IRecipes[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -94,13 +95,12 @@ const Recipes = () => {
                 </div>
                 <div className="me-3 mb-3">
                     <span className="me-2">{t('show', { ns: 'main' }).toLowerCase()}</span>
-                    <FilterButton  onPerPageClick={() => handlePerPage()}l dataPerPage={recipesPerPage} perIncreasePage={perIncreasePage} total={recipes.length} perPage={perPage}/>
-
-                    <div className="btn-group btn-group-sm" role="group">
+                    <ButtonGroup  perPage={perPage} onPerPageClick={handlePerPage} />
+                    {/* <div className="btn-group btn-group-sm" role="group">
                         <button type="button" className={`btn btn-outline-primary ${ recipesPerPage === perPage ? 'active' :''}`} onClick={() => handlePerPage(perPage)}>{perPage}</button>
                         <button type="button" className={`btn btn-outline-primary ${ recipesPerPage === perIncreasePage ? 'active' :''}`} onClick={() => handlePerPage(perIncreasePage)}>{perIncreasePage}</button>
                         <button type="button" className={`btn btn-outline-primary ${ recipesPerPage === recipes.length ? 'active' :''}`} onClick={() => handlePerPage(recipes.length)}>{t('all', { ns: 'main' })}</button>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="me-3 mb-3">
                     <SelectFilter />
