@@ -1,0 +1,14 @@
+#account{
+    .account-cover{
+        background-image: url(https://images.unsplash.com/photo-1530021356476-0a6375ffe73b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        .btn-signin{
+            @include button-outline-variant($light);
+        }
+        .btn-signup{
+            @include button-variant($light, $light);
+        }
+    }
+}

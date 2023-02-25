@@ -1,24 +1,39 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+
+interface IBtnGroupData{
+  label: string;
+  value: string;
+}
 
 interface IButtonGroup {
   perPage: number;
-  // total: number;
-  // perIncreasePage: number;
-  btnGroupData?: string[];
+  total: number;
+  btnGroupData?: IBtnGroupData[];
   onPerPageClick(num:number): void;
 }
 
 const ButtonGroup = (props: IButtonGroup) => {
   const { t } = useTranslation("main");
-
+  const data: IBtnGroupData[] = props.btnGroupData || [
+    {
+      value:process.env.REACT_APP_PER_PAGE as string,
+      label:process.env.REACT_APP_PER_PAGE as string,
+    },
+    {
+      value: process.env.REACT_APP_INCREASE_PER_PAGE as string,
+      label:process.env.REACT_APP_INCREASE_PER_PAGE as string,
+    },
+    {
+      value:props.total.toString(),
+      label:t("all"),
+    }
+  ]
+ 
   const btnGroup: IButtonGroup = {
-    btnGroupData: props.btnGroupData || [
-      process.env.REACT_APP_PER_PAGE!,
-      process.env.REACT_APP_INCREASE_PER_PAGE!,
-      t("all"),
-    ],
+    btnGroupData: data,
     perPage: props.perPage,
+    total: props.total,
     onPerPageClick: props.onPerPageClick
   };
 
@@ -37,11 +52,11 @@ const ButtonGroup = (props: IButtonGroup) => {
           key={index}
           type="button"
           className={`btn btn-outline-primary ${
-            Number(btn) === clickedBtn ? "active" : ""
+            Number(btn.value) === clickedBtn ? "active" : ""
           }`}
-          onClick={() => handlePerPage(Number(btn))}
+          onClick={() => handlePerPage(Number(btn.value))}
         >
-          {btn}
+          {btn.label}
         </button>
       ))}
     </div>

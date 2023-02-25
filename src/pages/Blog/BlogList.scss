@@ -1,0 +1,24 @@
+#content-blog-list {
+  @include position-effect-bg;
+  .blogs {
+    .card {
+      &.card-hover:hover {
+        box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
+        transform: translateY(-3px);
+      }
+      img {
+        max-height: 260px !important;
+        height: 260px !important;
+      }
+      .card-body {
+        p.crop-text {
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

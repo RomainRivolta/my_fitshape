@@ -1,7 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav";
 import NotFound from "./pages/NotFound/NotFound";
 import Protected from "./components/Protected";
 import { AuthContext } from "./context/userAuthContext";
@@ -9,26 +8,42 @@ import ResetPassword from "./pages/Auth/ResetPassword";
 import Home from "./pages/Home/Home";
 import Layout from "./components/Layout";
 import Spinner from "./components/Spinner";
+import CalorieCalculator from "./pages/CalorieCalculator/CalorieCalculator";
 
 const SignUp = React.lazy(() => import("./pages/Auth/SignUp"));
 const SignIn = React.lazy(() => import("./pages/Auth/SignIn"));
+const BlogList = React.lazy(() => import("./pages/Blog/BlogList"));
 const Blog = React.lazy(() => import("./pages/Blog/Blog"));
-const Recipes = React.lazy(() => import("./pages/Recipes/Recipes"));
+const RecipesList = React.lazy(() => import("./pages/Recipes/RecipeList"));
+const Recipe = React.lazy(() => import("./pages/Recipes/Recipe"));
 
 const App = () => {
   const { user } = useContext(AuthContext);
+
+  const renderSpinner = (
+    <Spinner />
+  );
 
   return (
     <Fragment>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/recipes" element={
-            <React.Suspense fallback={<Spinner />}>
-              <Recipes />
-            </React.Suspense>
-          }
-          />
+
+          <Route path="/recipes">
+            <Route index element={
+              <React.Suspense fallback={renderSpinner}>
+                <RecipesList />
+              </React.Suspense>
+            }
+            />
+            <Route path=":name" element={
+              <React.Suspense fallback={renderSpinner}>
+                <Recipe />
+              </React.Suspense>
+            } />
+          </Route>
+
           <Route
             path="/mytraining"
             element={
@@ -45,19 +60,32 @@ const App = () => {
               </Protected>
             }
           />
-          <Route path="/caloriecalculator" />
 
-          <Route path="/blog" element={
-            <React.Suspense fallback={<>...</>}>
-              <Blog />
+          <Route path="/caloriecalculator" element={
+            <React.Suspense fallback={renderSpinner}>
+              <CalorieCalculator />
             </React.Suspense>
           } />
+
+          <Route path="/blogs">
+            <Route index element={
+              <React.Suspense fallback={renderSpinner}>
+                <BlogList />
+              </React.Suspense>
+            } />
+            <Route path=":name" element={
+              <React.Suspense fallback={renderSpinner}>
+                <Blog />
+              </React.Suspense>
+            } />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route
           path="/signin"
           element={
-            <React.Suspense fallback={<>...</>}>
+            <React.Suspense fallback={renderSpinner}>
               <SignIn />
             </React.Suspense>
           }
@@ -65,7 +93,7 @@ const App = () => {
         <Route
           path="/signup"
           element={
-            <React.Suspense fallback={<>...</>}>
+            <React.Suspense fallback={renderSpinner}>
               <SignUp />
             </React.Suspense>
           }

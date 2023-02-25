@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Source+Sans+Pro:wght@300;400;700&display=swap');
 
 @import './_utilities/color';
+@import './_utilities/mixins';
 
 @import './themes/theme';
 
@@ -12,12 +13,15 @@
 @import "../components/Input.scss";
 @import "../components/Cover.scss";
 @import "../components/Filter.scss";
+@import "../components/Account.scss";
 
 //pages
 @import "../pages/NotFound/NotFound.scss";
 @import "../pages/Auth/SignUp.scss";
-@import "../pages/Recipes/Recipes.scss";
+@import "../pages/Recipes/RecipeList.scss";
 @import "../pages/Home/Home.scss";
+@import "../pages/Blog/BlogList.scss";
+@import "../pages/Blog/Blog.scss";
 
 @import '../index.scss';
 

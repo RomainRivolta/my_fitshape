@@ -1,0 +1,19 @@
+@mixin position-effect-bg($bgColour: $light) {
+  .bg-effect {
+    position: relative;
+    &.bg-effect-light::before {
+      background-color: $bgColour;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: skewY(-5deg);
+      transform-origin: top left;
+      z-index: -1;
+    }
+  }
+}

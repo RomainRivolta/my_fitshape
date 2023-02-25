@@ -24,7 +24,7 @@ const CheckList = (props: IProps) => {
     ];
 
     return (
-        <div className="alert alert-light checklist" role="alert">
+        <div id="checklist">
             {rules.map((rule) => {
                 const cn = props.value && props.value.match(rule.pattern) ? 'passed text-success fs-6' : 'invalid fs-6';
                 return (

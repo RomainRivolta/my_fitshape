@@ -1,4 +1,3 @@
-import { t } from "i18next";
 import React, { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";

@@ -1,10 +1,10 @@
-// import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { FormEvent, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthContext } from "../../context/userAuthContext";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import InputGroup from "../../components/InputGroup";
 import CheckList from "../../components/CheckList";
 import { atLetters, passwordValidRegex } from "../../utils/validationRule";
 import Account from "../../components/Account";
@@ -159,8 +159,8 @@ const SignUp = (props: any) => {
             required
           />
         </div>
-         <div className="col-12">
-          <Input
+         <div className="col-12 d-none d-lg-block">
+          <InputGroup
             id="password"
             className="required"
             label={t("password")}
@@ -169,6 +169,21 @@ const SignUp = (props: any) => {
             onChange={handleChange}
             value={password}
             validator={error?.password}
+            data={password}
+            required
+          />
+        </div>
+        <div className="col-12 d-lg-none">
+        <Input
+            id="password"
+            className="required"
+            label={t("password")}
+            name="password"
+            type="password"
+            onChange={handleChange}
+            value={password}
+            validator={error?.password}
+            data={password}
             required
           />
         </div>
@@ -186,7 +201,7 @@ const SignUp = (props: any) => {
           />
         </div>
         <div className="col-lg-6">
-          <CheckList value={password} />
+          {/* <CheckList value={password} /> */}
         </div>
         <div className="d-grid">
           <Button type="submit" className="btn-primary">

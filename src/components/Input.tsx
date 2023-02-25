@@ -24,7 +24,6 @@ const Input = (props: IProps) => {
           className={`form-control ${validator ? "is-invalid" : ""}`}
           {...rest}
         />
-
         {validator && <div className="invalid-feedback">{validator}</div>}
       </div>
     </Fragment>

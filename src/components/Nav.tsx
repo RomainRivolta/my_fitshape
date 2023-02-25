@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import AuthNav from "./AuthNav";
-import SearchModal from "./SearchModal";
 import { useEffect, useState } from "react";
 
 interface IMenu {
@@ -22,8 +21,10 @@ const Nav = () => {
   const { t } = useTranslation("menu");
   const [isNavCollapsed, setIsNavCollapsed] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0)
-
+  const [navBg, setNavBg] = useState('bg-transparent');
   const handleNavCollapse = () => setIsNavCollapsed((state) => !state)
+
+  const location = useLocation();
 
   const menu: IMenu[] = [
     {
@@ -55,31 +56,49 @@ const Nav = () => {
     {
       id: "4",
       name: t("blog"),
-      redirectPath: "/blog",
+      redirectPath: "/blogs",
     },
   ];
 
-  useEffect(() => {
-    const updatePosition = () => {
-      setScrollPosition(window.scrollY);
+  const updatePosition = (): void => {
+    setScrollPosition(window.scrollY);
+  }
+
+  const getLocation = () =>{
+    console.log(location.pathname.split('/')[1])
+    switch (location.pathname.split('/')[1]) {
+      case "blogs":
+        setNavBg('bg-light');
+        break;
+      default:
+        setNavBg('bg-transparent');
+        break;
     }
+  }
 
-    window.addEventListener('scroll', updatePosition);
-    updatePosition();
-    return () => window.removeEventListener('scroll', updatePosition)
-  
-  },[]);
-
-
+  useEffect(() => {
+    const watchLocation = () =>{
+      getLocation();
+    }
+    
+    const watchScroll = () => {
+      window.addEventListener('scroll',updatePosition);
+    }
+    watchLocation();
+    watchScroll();
+    return () => {
+      window.removeEventListener('scroll', updatePosition);
+    }
+  })
   return (
-    <header className={`${scrollPosition > 0 ? 'bg-body': 'bg-transparent' } fixed-top border-top border-primary`}>
+    <header className={`${scrollPosition > 0 ? 'bg-body': navBg } fixed-top`}>
       <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-dark">
-          <Link className="navbar-brand text-black" to="/">
+        <nav className="navbar navbar-expand-lg navbar-custom">
+          <Link className="navbar-brand" to="/">
             <span>Fitshape</span>
           </Link>
           <button
-            className={`${isNavCollapsed ? '' :'collapsed'} navbar-toggler border-0 shadow-none`}
+            className={`${isNavCollapsed ? '' : 'collapsed'} navbar-toggler border-0 shadow-none`}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -94,7 +113,7 @@ const Nav = () => {
           </button>
           <div className={isNavCollapsed ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'} id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto me-lg-3 navbar-nav-scroll">
-               {menu.map((e) =>
+              {menu.map((e) =>
                 e.subMenu ? (
                   <li className="nav-item dropdown" key={e.id}>
                     <a
@@ -126,7 +145,7 @@ const Nav = () => {
                     </NavLink>
                   </li>
                 )
-              )} 
+              )}
             </ul>
             <AuthNav />
           </div>

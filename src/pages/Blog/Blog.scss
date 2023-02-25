@@ -1,0 +1,7 @@
+#content-blog{
+    padding-top: 60px;
+    @include  position-effect-bg;
+    img{
+        max-height: 500px;
+    }
+}

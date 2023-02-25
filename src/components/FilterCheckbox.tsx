@@ -1,5 +1,5 @@
 import React from "react";
-import { IFilterDataCheckbox } from "../utils/filterInterface";
+import { IFilterDataCheckbox } from "../blogInterface.tsx/filterInterface";
 
 const FilterCheckbox = (props: any) => {
     const { title, data } = props;
@@ -14,7 +14,7 @@ const FilterCheckbox = (props: any) => {
                         <div className="mb-1" key={e.id}>
                             <div className="form-check">
                                 <input type="checkbox" id={e.name} name={e.name} className="form-check-input" />
-                                <label htmlFor={e.name} className="form-check-label">{e.label}</label>
+                                <label htmlFor={e.name} className="form-check-label">{e.label} {e.count ? `(${e.count})`: ''}</label>
                             </div>
                         </div>
                     ))}

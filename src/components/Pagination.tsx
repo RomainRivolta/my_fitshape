@@ -12,9 +12,6 @@ const Pagination = (props: IPagination) => {
     const {nPages, currentPage, setCurrentPage} = props;
     const { t } = useTranslation('main');
     
-    console.log('currentPage >>> ', currentPage);
-    console.log('nPages >>>', nPages);
-
     const pageNumbers: number[] = [...Array(nPages + 1).keys()].slice(1);
 
     const handlePreviousPage = (e: FormEvent) => {
@@ -31,15 +28,15 @@ const Pagination = (props: IPagination) => {
         <nav aria-label="Page navigation">
             <ul className="pagination justify-content-center">
                 <li className="page-item">
-                    <a className="page-link" onClick={handlePreviousPage} href="#">{t('previous')}</a>
+                    <span className="page-link" onClick={handlePreviousPage}>{t('previous')}</span>
                 </li>
                 {pageNumbers.map(pgNumber=>(
-                    <li key={pgNumber} className={`page-item ${currentPage == pgNumber ? 'active' : ''}`}>
-                        <a onClick={() => setCurrentPage(pgNumber)} className="page-link" href="#">{pgNumber}</a>
+                    <li key={pgNumber} className={`page-item ${currentPage === pgNumber ? 'active' : ''}`}>
+                        <span onClick={() => setCurrentPage(pgNumber)} className="page-link">{pgNumber}</span>
                     </li>
                 ))}
                 <li className="page-item">
-                    <a className="page-link" onClick={handleNextPage} href="#">{t('next')}</a>
+                    <span className="page-link" onClick={handleNextPage}>{t('next')}</span>
                 </li>
             </ul>
         </nav>

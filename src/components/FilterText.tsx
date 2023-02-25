@@ -1,5 +1,5 @@
 import React from "react";
-import { IFilterDataText} from "../utils/filterInterface";
+import { IFilterDataText} from "../blogInterface.tsx/filterInterface";
 
 const FilterText = (props:any) => {
     const { title, data } = props;
@@ -11,7 +11,7 @@ const FilterText = (props:any) => {
                 <h6 className="sidebar-heading d-none d-lg-block">{title}</h6>
                 <div className="flex-column ms-3 nav  nav-pills">
                     {filter.map((e) => (
-                        <a className="mb-1 nav-link text-body" role="button" key={e.id}>{e.name} {e.count}</a>
+                        <a className="mb-1 nav-link text-body" role="button" key={e.id}>{e.name} {e.count ? `(${e.count})` : ''}</a>
                     ))}
                 </div>
             </div>

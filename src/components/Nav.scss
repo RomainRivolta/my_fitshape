@@ -2,44 +2,56 @@ $feature-bg: #ffd803;
 
 @supports (selector(html:has(body))) {
   header.bg-transparent {
-    .navbar-nav {
-      li.nav-item a.nav-link {
+    .navbar-custom {
+      .navbar-brand,
+      .navbar-text {
         color: #fff;
       }
-    }
-    .nav-item {
-      .btn-signin {
-        @include button-outline-variant($light);
+      .navbar-nav {
+        li.nav-item a.nav-link {
+          color: #fff;
+        }
       }
-      .btn-signup {
-        @include button-variant($dark, $primary);
+      .nav-item {
+        .btn-signin {
+          @include button-outline-variant($light);
+        }
+        .btn-signup {
+          @include button-variant($warning, $warning);
+        }
       }
     }
   }
-  header.bg-body {
-    .navbar-nav {
-      li.nav-item a.nav-link {
-        color: $dark;
+  header.bg-body,header.bg-light {
+    border-top: 3px solid $primary-color !important;
+    .navbar-custom {
+      .navbar-brand,
+      .navbar-text {
+        color: $black;
       }
-    }
-    .nav-item {
-      .btn-signin {
-        @include button-outline-variant($primary);
+      .navbar-nav {
+        li.nav-item a.nav-link {
+          color: $black;
+        }
       }
-      .btn-signup {
-        @include button-variant($primary, $primary);
+      .nav-item {
+        .btn-signin {
+          @include button-outline-variant($primary);
+        }
+        .btn-signup {
+          @include button-variant($primary, $primary);
+        }
       }
     }
   }
 }
 
-header.fixed-top.border-top.border-primary {
-  border-top: 3px solid $primary-color !important;
+header.fixed-top {
   @include media-breakpoint-down(md) {
     background: #fff !important;
   }
   .container-fluid {
-    nav.navbar {
+    nav.navbar.navbar-custom {
       a.navbar-brand span {
         font-style: italic;
         font-size: 22px;
@@ -59,9 +71,9 @@ header.fixed-top.border-top.border-primary {
             &:hover {
               color: $primary-color;
             }
-            // &.active{
-            //     color: $primary-color;
-            // }
+            &.active{
+                color: $primary-color;
+            }
           }
           li.nav-item.dropdown {
             &:hover .dropdown-menu.dropdown-menu-arrow {

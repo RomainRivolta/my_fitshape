@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode } from "react";
+import React, { Fragment } from "react";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import { Outlet } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
     return (
         <Fragment>
-            <Nav />
+            <Nav/>
             <Outlet />
             <Footer />
         </Fragment>
