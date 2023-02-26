@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import Cover from "../../components/Cover";
 import Pagination from "../../components/Pagination";
 import Spinner from "../../components/Spinner";
-import { IBlogList } from "../../utils/blogInterface";
 
+export interface IBlogList {
+  id: number;
+  title: string;
+  content: string;
+  publish: string;
+  img: string;
+  category?: string;
+}
 
 
 const BlogList = () => {
@@ -37,7 +44,7 @@ const BlogList = () => {
 
   const renderBlogs = (
     <Fragment>
-      <div className="bg-effect bg-effectl-light">
+      <div className="bg-effect bg-effect-color">
         <div className="container py-4">
           <div className="d-flex row row-cols-2 g-5 mb-5">
             {currentBlogList.map((blog) => (
@@ -46,7 +53,7 @@ const BlogList = () => {
                   <img src={blog.img} alt={blog.title} className="card-img-top img-fluid" />
                   <div className="card-body p-4 p-xl-5 text-center">
                     <h2 className="card-title">
-                      <Link to={`/blogs/${blog.title.toLowerCase()}`} state={{blog:blog}} className="stretched-link text-decoration-none">{blog.title}</Link>
+                      <Link to={`/blogs/${blog.title.toLowerCase()}`} state={{id: blog.id}} className="stretched-link text-decoration-none">{blog.title}</Link>
                     </h2>
                     <div className="small mb-4">
                       <span className="fw-light">{t('published on')} </span>{blog.publish}&nbsp;|&nbsp;

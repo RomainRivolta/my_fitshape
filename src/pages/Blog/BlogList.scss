@@ -1,5 +1,5 @@
 #content-blog-list {
-  @include position-effect-bg;
+  @include effect-bg;
   .blogs {
     .card {
       &.card-hover:hover {

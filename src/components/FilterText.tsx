@@ -1,5 +1,5 @@
 import React from "react";
-import { IFilterDataText} from "../blogInterface.tsx/filterInterface";
+import { IFilterDataText} from "../utils/filterInterface";
 
 const FilterText = (props:any) => {
     const { title, data } = props;

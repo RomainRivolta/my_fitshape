@@ -1,7 +1,7 @@
-@mixin position-effect-bg($bgColour: $light) {
+@mixin effect-bg($bgColour: $light) {
   .bg-effect {
     position: relative;
-    &.bg-effect-light::before {
+    &.bg-effect-color::before {
       background-color: $bgColour;
     }
     &::before {

@@ -1,5 +1,5 @@
 import React from "react";
-import { IFilterDataCheckbox } from "../blogInterface.tsx/filterInterface";
+import { IFilterDataCheckbox } from "../utils/filterInterface";
 
 const FilterCheckbox = (props: any) => {
     const { title, data } = props;
