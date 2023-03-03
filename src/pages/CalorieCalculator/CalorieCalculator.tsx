@@ -38,10 +38,10 @@ const CalorieCalculator = () => {
             <div className="container pt-5">
                 <div className="row">
                     <div className="col ms-auto">
-                        {render.map((e) => (
-                            <Fragment>
-                                <h2>{e.title}</h2>
-                                <p>{e.text}</p>
+                        {render.map(({text,title}, index) => (
+                            <Fragment key={index}>
+                                <h2>{title}</h2>
+                                <p>{text}</p>
                             </Fragment>
                         ))}
                     </div>

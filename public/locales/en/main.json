@@ -1,15 +1,18 @@
 {
-    "not found 404":"The Page can't be found",
+    "not found 404":"We are sorry, Page not found!",
+    "page have been remove or temporarily unavailable":"The page you are looking for might have been removed had its name changed or is temporarily unavailable.",
+    "not results found":"Not results found",
     "home page":"Home page",
     "off": "off",
     "previous":"Previous",
     "next":"Next",
-    "back to home": "Back to home",
+    "back to home page": "Back To Homepage",
     "showing": "Showing",
     "show": "Show",
     "all": "All",
     "default": "Default",
     "rating": "Rating",
     "popularity":"Popularity",
-    "new": "New"
+    "new": "New",
+    "retry": "Retry"
 }

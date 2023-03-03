@@ -1,0 +1,55 @@
+.container-fluid {
+  #notfound {
+    position: relative;
+    min-height: 100vh;
+    .notfound {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      .notfound-404 {
+        position: absolute;
+        height: 100px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        h1{
+          font-family:  $font-family-maven;
+          color: #ececec;
+          font-weight: 900;
+          font-size: 276px;
+          margin: 0px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+        h2 {
+          font-family: $font-family-maven;
+          font-size: 46px;
+          color: #000;
+          font-weight: 900;
+          text-transform: uppercase;
+          margin: 0px;
+        }
+        p {
+          font-family: $font-family-maven;
+          font-size: 16px;
+          color: #000;
+          font-weight: 400;
+          text-transform: uppercase;
+          margin-top: 15px;
+        }
+        a{
+          border-radius: 41px;
+          text-transform: uppercase;
+          font-family: $font-family-maven;
+          font-size: 14px;
+          padding: 16px 38px;
+        }
+      
+    }
+  }
+}

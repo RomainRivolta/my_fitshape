@@ -1,15 +1,18 @@
 {
-    "not found 04":"La page est introuvable",
+    "not found 404":"Nous sommes désolés, Page introuvable !",
+    "page have been remove or temporarily unavailable": "La page que vous recherchez a peut-être été supprimée, son nom a changé ou est temporairement indisponible.",
+    "not results found":"Aucun résultat trouvé",
     "home page":"Page accueil",
     "off": "de",
     "previous":"Précédent",
     "next":"Suivant",
-    "back to home": "Revenir à l'accueil",
+    "back to home page": "Retour à l'accueil",
     "showing": "Afficher",
     "show": "Montrer",
     "all": "Tout",
     "default": "Défaut",
     "rating": "Notation",
     "popularity":"Popularité",
-    "new": "Nouveau"
+    "new": "Nouveau",
+    "retry": "Réessayer"
 }

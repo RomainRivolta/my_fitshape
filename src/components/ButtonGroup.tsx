@@ -47,16 +47,16 @@ const ButtonGroup = (props: IButtonGroup) => {
 
   return (
     <div className="btn-group btn-group-sm" role="group">
-      {btnGroupData!.map((btn, index) => (
+      {btnGroupData!.map(({ value, label}, index) => (
         <button
           key={index}
           type="button"
           className={`btn btn-outline-primary ${
-            Number(btn.value) === clickedBtn ? "active" : ""
+            Number(value) === clickedBtn ? "active" : ""
           }`}
-          onClick={() => handlePerPage(Number(btn.value))}
+          onClick={() => handlePerPage(Number(value))}
         >
-          {btn.label}
+          {label}
         </button>
       ))}
     </div>

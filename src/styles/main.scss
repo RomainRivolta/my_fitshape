@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Source+Sans+Pro:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
 @import './_utilities/color';
 @import './_utilities/mixins';
@@ -14,9 +14,11 @@
 @import "../components/Cover.scss";
 @import "../components/Filter.scss";
 @import "../components/Account.scss";
+@import "../components/NotResultsFound.scss";
+@import "../components/CardRecipe.scss";
 
 //pages
-@import "../pages/NotFound/NotFound.scss";
+@import "../pages/NotFound/NotFound404.scss";
 @import "../pages/Auth/SignUp.scss";
 @import "../pages/Recipes/RecipeList.scss";
 @import "../pages/Home/Home.scss";

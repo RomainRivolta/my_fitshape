@@ -25,11 +25,11 @@ const CheckList = (props: IProps) => {
 
     return (
         <div id="checklist">
-            {rules.map((rule) => {
-                const cn = props.value && props.value.match(rule.pattern) ? 'passed text-success fs-6' : 'invalid fs-6';
+            {rules.map(({label, pattern},index) => {
+                const cn = props.value && props.value.match(pattern) ? 'passed text-success fs-6' : 'invalid fs-6';
                 return (
-                    <Fragment key={rule.label}>
-                        <p className={cn}><i className="bi" ></i>{rule.label}</p>
+                    <Fragment key={index}>
+                        <p className={cn}><i className="bi" ></i>{label}</p>
                     </Fragment>)
             })}
         </div>

@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "./pages/NotFound/NotFound";
+import NotFound404 from "./pages/NotFound/NotFound404";
 import Protected from "./components/Protected";
 import { AuthContext } from "./context/userAuthContext";
 import ResetPassword from "./pages/Auth/ResetPassword";
@@ -80,7 +80,7 @@ const App = () => {
             } />
           </Route>
 
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound404 />} />
         </Route>
         <Route
           path="/signin"

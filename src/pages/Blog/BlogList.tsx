@@ -1,17 +1,17 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import Cover from "../../components/Cover";
 import Pagination from "../../components/Pagination";
 import Spinner from "../../components/Spinner";
 
 export interface IBlogList {
-  id: number;
+  _id: string;
+  docId: string;
   title: string;
   content: string;
-  publish: string;
+  publish: Date;
   img: string;
-  category?: string;
+  category: string;
 }
 
 
@@ -43,24 +43,23 @@ const BlogList = () => {
 
 
   const renderBlogs = (
-    <Fragment>
       <div className="bg-effect bg-effect-color">
         <div className="container py-4">
           <div className="d-flex row row-cols-2 g-5 mb-5">
-            {currentBlogList.map((blog) => (
-              <div className="col-4 blogs" key={blog.id}>
+            {currentBlogList.map(({_id, category, publish, content, title, img}) => (
+              <div className="col-4 blogs" key={_id}>
                 <div className="card card-hover h-100">
-                  <img src={blog.img} alt={blog.title} className="card-img-top img-fluid" />
+                  <img src={img} alt={title} className="card-img-top img-fluid" />
                   <div className="card-body p-4 p-xl-5 text-center">
                     <h2 className="card-title">
-                      <Link to={`/blogs/${blog.title.toLowerCase()}`} state={{id: blog.id}} className="stretched-link text-decoration-none">{blog.title}</Link>
+                      <Link to={`/blogs/${title.toLowerCase()}`} state={{ id: _id }} className="stretched-link text-decoration-none">{title}</Link>
                     </h2>
                     <div className="small mb-4">
-                      <span className="fw-light">{t('published on')} </span>{blog.publish}&nbsp;|&nbsp;
-                      {blog.category && <><span className="fw-light">{t('categories')}: </span>{blog.category}</>}
+                      <><span className="fw-light">{t('published on')} </span>{publish}</>
+                      <><span className="fw-light">{t('categories')}: </span>{category}</>
                     </div>
                     <p className="card-text text-secondary crop-text">
-                      {blog.content}
+                      {content}
                     </p>
                   </div>
                 </div>
@@ -72,7 +71,6 @@ const BlogList = () => {
           </div>
         </div>
       </div>
-    </Fragment>
   );
 
   return (

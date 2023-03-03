@@ -28,8 +28,8 @@ const SelectFilter = () => {
 
     return (
         <select className="form-select">
-            {optionSelect.map((o) => (
-                <option value={o.value} key={o.value}>{o.str}</option>
+            {optionSelect.map(({str, value}) => (
+                <option value={value} key={value}>{str}</option>
             ))}
         </select>
     )

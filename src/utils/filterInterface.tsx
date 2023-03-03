@@ -1,14 +1,13 @@
 interface IFilter{
     id: number;
     name:string;
+    count?:number;
 }
 
 export interface IFilterDataText extends IFilter {
     href?:string;
-    count?:number;
 }
 
 export interface IFilterDataCheckbox extends IFilter{
-    label: string;
-    count?:number;
+    value: string | number;
 }
