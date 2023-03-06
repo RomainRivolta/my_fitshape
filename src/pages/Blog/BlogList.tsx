@@ -21,13 +21,14 @@ const BlogList = () => {
   const { t } = useTranslation(['blogs', 'main']);
   const [blogList, setBlogList] = useState<IBlogList[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [blogListPerPage, setBlogListPerPage] = useState(perPage);
+  const [page, setPage] = useState(1);
 
-  const indexOfLastBlog: number = currentPage * blogListPerPage;
-  const indexOfFirstBlog: number = indexOfLastBlog - blogListPerPage;
-  const nPages: number = Math.ceil(blogList.length / blogListPerPage)
-  const currentBlogList: IBlogList[] = blogList.slice(indexOfFirstBlog, indexOfLastBlog);
+  // const [blogListPerPage, setBlogListPerPage] = useState(perPage);
+
+  // const indexOfLastBlog: number = currentPage * blogListPerPage;
+  // const indexOfFirstBlog: number = indexOfLastBlog - blogListPerPage;
+  // const nPages: number = Math.ceil(blogList.length / blogListPerPage)
+  // const currentBlogList: IBlogList[] = blogList.slice(indexOfFirstBlog, indexOfLastBlog);
 
   const getBlogList = async () => {
     setIsLoading(true);
@@ -39,14 +40,15 @@ const BlogList = () => {
 
   useEffect(() => {
     getBlogList();
-  }, [])
+  }, [page])
 
 
   const renderBlogs = (
       <div className="bg-effect bg-effect-color">
         <div className="container py-4">
           <div className="d-flex row row-cols-2 g-5 mb-5">
-            {currentBlogList.map(({_id, category, publish, content, title, img}) => (
+            {/* {currentBlogList.map(({_id, category, publish, content, title, img}) => ( */}
+            {blogList.map(({_id, category, publish, content, title, img}) => (
               <div className="col-4 blogs" key={_id}>
                 <div className="card card-hover h-100">
                   <img src={img} alt={title} className="card-img-top img-fluid" />
@@ -67,7 +69,7 @@ const BlogList = () => {
             ))}
           </div>
           <div className="row pt-4">
-            <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            <Pagination page={page} limit={} total={} setPage={(page:number) => setPage(page)} />
           </div>
         </div>
       </div>

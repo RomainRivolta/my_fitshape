@@ -3,13 +3,14 @@ import React, { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 
 interface IPagination {
-    setCurrentPage: any;
-    currentPage: number;
-    nPages: number;
+    page: number;
+    total: number;
+    limit: number;
+    // setPage:
 }
 
 const Pagination = (props: IPagination) => {
-    const {nPages, currentPage, setCurrentPage} = props;
+    const {page, total, limit} = props;
     const { t } = useTranslation('main');
     
     const pageNumbers: number[] = [...Array(nPages + 1).keys()].slice(1);
