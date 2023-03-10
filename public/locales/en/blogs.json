@@ -1,6 +1,10 @@
 {
-    "continue reading": "Continue reading",
-    "published on":"published on",
-    "categories":"Categories",
-    "blog":"Blog"
+    "title": {
+        "page":"Blog"
+    },
+    "card":{
+        "continue reading": "Continue reading",
+        "published on":"Published on",
+        "categories":"Categories"
+    }
 }

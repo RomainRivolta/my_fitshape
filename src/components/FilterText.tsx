@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Dispatch, Fragment, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
 import { IFilterDataText} from "../utils/filterInterface";
 
@@ -6,10 +6,11 @@ interface IFilterText {
     title: string;
     filter:IFilterDataText[];
     translation: string;
+    setCategoryChoice: Dispatch<SetStateAction<string>>;
 }
 
 const FilterText = (props:IFilterText) => {
-    const { title, filter, translation } = props;
+    const { title, filter, translation, setCategoryChoice } = props;
     const {t} = useTranslation(translation);
     return (
         <div className="sidebar-block px-3 px-lg-0 me-lg-4">
@@ -19,7 +20,7 @@ const FilterText = (props:IFilterText) => {
                 <div className="flex-column ms-3 nav  nav-pills">
                     {filter.map(({name,count},index) => (
                         <Fragment key={index}>
-                            <a className="mb-1 nav-link text-body" role="button" key={index}>{t(name)} {count ? `(${count})` : ''}</a>
+                            <span className="mb-1 nav-link text-body" role="button" key={index} onClick={()=> setCategoryChoice(name)}>{t(name)} {count ? `(${count})` : ''}</span>
                         </Fragment>
                     ))}
                 </div>

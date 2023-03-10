@@ -1,14 +1,48 @@
 {
-    "title":"Calculate your calories",
-    "sub title":"How to calculate his basic metabolic rate and energy consumption?",
-    "title what are calories": "What are calories?",
-    "explain daily calorie requirements": "Daily calorie requirements are the amount of calories that must be added each day to ensure the proper functioning of the body. They depend on weight, sex, age, height and physical activity. In order to better control your weight, you need to calculate your daily caloric requirements and set up a balanced and adapted diet.",
-    "title macronutrients": "Macronutrients",
-    "explain macronutrients": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
-    "title proteins": "Proteins",
-    "explain proteins": "",
-    "title fat": "Fat",
-    "explain fat": "",
-    "title carb": "Carb",
-    "explain carb": ""
+  "title": {
+    "page": "Calculate your calories",
+    "what are calories": "What are calories?",
+    "macronutrients": "Macronutrients",
+    "proteins": "Proteins",
+    "fat": "Fat",
+    "carb": "Carb",
+    "calorie calculator":"Calorie calculator"
+  },
+  "sub title": "How to calculate his basic metabolic rate and energy consumption?",
+  "explain": {
+    "daily calorie requirements": "Daily calorie requirements are the amount of calories that must be added each day to ensure the proper functioning of the body. They depend on weight, sex, age, height and physical activity. In order to better control your weight, you need to calculate your daily caloric requirements and set up a balanced and adapted diet.",
+    "macronutrients": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+    "proteins": {
+      "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+      "goal": "This is some content from a media component. You can replace this with any content and adjust it as needed."
+    },
+    "fat": {
+      "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+      "goal": "This is some content from a media component. You can replace this with any content and adjust it as needed."
+    },
+    "carb": {
+      "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+      "goal": "This is some content from a media component. You can replace this with any content and adjust it as needed."
+    }
+  },
+  "form": {
+    "gender": "Gender",
+    "male": " Man",
+    "woman": "Woman",
+    "age": "Age",
+    "size": "Size",
+    "weight": "Weight",
+    "physical activity": "Physical activity",
+    "objective": "Objective",
+    "select": "Select",
+    "muscle gain": "Muscle gain",
+    "weightloss": "Weightloss",
+    "maintenance": "Maintenance",
+    "sedentary": "Sedentary, no physical activity",
+    "light": "Light physical activity once or twice a week",
+    "moderate": "Moderate physical activity three to four times a week",
+    "daily moderate": "Activité physique modérée quotidienne",
+    "intense": "Intense physical activity six to seven times a week",
+    "calculate": "Calculate"
+  }
 }

@@ -8,12 +8,11 @@ interface IFilterCheckbox {
     filter:IFilterDataCheckbox[];
     translation: string;
     setFilterMultipleChoice: Dispatch<SetStateAction<string>>;
-    filterMultipleChoice: string;
 }
 
 const FilterCheckbox = (props: IFilterCheckbox) => {
     
-    const { title, filter, translation, setFilterMultipleChoice , filterMultipleChoice} = props;
+    const { title, filter, translation, setFilterMultipleChoice } = props;
     const {t} = useTranslation(translation);
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {

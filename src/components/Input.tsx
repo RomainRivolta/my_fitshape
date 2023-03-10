@@ -15,7 +15,6 @@ const Input = (props: IProps) => {
 
   return (
     <Fragment>
-      <div className="mb-3">
         <label htmlFor={id} className={merged}>
           {label}
         </label>
@@ -25,7 +24,6 @@ const Input = (props: IProps) => {
           {...rest}
         />
         {validator && <div className="invalid-feedback">{validator}</div>}
-      </div>
     </Fragment>
   );
 };

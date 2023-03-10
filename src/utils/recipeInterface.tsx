@@ -1,16 +1,23 @@
-interface IRecipeInfoList {
-    name: string;
-}
+import { IFilterDataText, IFilterDataCheckbox } from "./filterInterface";
 
-interface IRecipeCategory {
-    name: string;
+export interface IRecipeDataList {
+    _id: string;
+    title: string;
+    img: string;
+    category_name: string;
+    current_foods_name: string[];
 }
 
 export interface IRecipeList {
-    _id: string;
-    docId: string;
-    title: string;
-    img: string;
-    category: IRecipeCategory;
-    current_foods: IRecipeInfoList[];
+    error: boolean;
+    page: number;
+    limit: number;
+    current_foods: IFilterDataCheckbox[];
+    categories: IFilterDataText[];
+    recipes:[
+        {
+            data: IRecipeDataList[];
+            total: number
+        }
+    ]
 }

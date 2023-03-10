@@ -10,6 +10,7 @@ interface IButtonGroup {
   perPage: number;
   total: number;
   btnGroupData?: IBtnGroupData[];
+  // perPageClick: number;
   onPerPageClick(num:number): void;
 }
 
@@ -17,8 +18,8 @@ const ButtonGroup = (props: IButtonGroup) => {
   const { t } = useTranslation("main");
   const data: IBtnGroupData[] = props.btnGroupData || [
     {
-      value:process.env.REACT_APP_PER_PAGE as string,
-      label:process.env.REACT_APP_PER_PAGE as string,
+      value:process.env.REACT_APP_LIMIT_PER_PAGE as string,
+      label:process.env.REACT_APP_LIMIT_PER_PAGE as string,
     },
     {
       value: process.env.REACT_APP_INCREASE_PER_PAGE as string,
@@ -34,15 +35,16 @@ const ButtonGroup = (props: IButtonGroup) => {
     btnGroupData: data,
     perPage: props.perPage,
     total: props.total,
+    // perPageClick: props.
     onPerPageClick: props.onPerPageClick
   };
 
   const { perPage, btnGroupData, onPerPageClick } = btnGroup;
-  const [clickedBtn, setClickedBtn] = useState(perPage);
+  // const [clickedBtn, setClickedBtn] = useState(perPage);
 
   const handlePerPage = (num: number) => {
-    setClickedBtn(num);
     onPerPageClick(num);
+    // setClickedBtn(num);
   };
 
   return (
@@ -52,7 +54,7 @@ const ButtonGroup = (props: IButtonGroup) => {
           key={index}
           type="button"
           className={`btn btn-outline-primary ${
-            Number(value) === clickedBtn ? "active" : ""
+            Number(value) === perPage ? "active" : ""
           }`}
           onClick={() => handlePerPage(Number(value))}
         >

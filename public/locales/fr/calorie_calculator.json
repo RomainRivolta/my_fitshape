@@ -1,14 +1,48 @@
 {
-    "title":"Calculer ses calories",
-    "sub title":"Comment calculer son métabolisme basal ainsi que sa dépense énergétique ?",
-    "title what are calories": "Qu’est-ce que les calories ? ",
-    "explain daily calorie requirements": "Les besoins caloriques quotidiens représentent la quantité de calories qu'il faut ajouter chaque jour pour assurer le bon fonctionnement du corps. Ils dépendent du poids, du sexe, de l'âge, de la taille et de l'activité physique. Afin de mieux contrôler son poids, il est donc nécessaire de calculer ses besoins caloriques quotidiens et de mettre en place une alimentation équilibrée et adaptée.",
-    "title macronutrients": "Les macronutriments",
-    "explain macronutrients": "Mais les calories ne sont pas les seules choses à prendre comptent. La répartition des macronutriments est à prendre en compte. Qu’est-ce que les macronutriments ? Les macronutriments regroupent les 3 groupes d’aliments destinés à fournir de l’énergie à l’organisme et à assurer ses fonctions vitales : les protéines, les glucides et les lipides. Chaque nutriment ayant une fonction distincte dans l’organisme, nous vous proposons de faire le point sur ces 3 catégories, afin de mieux vous aiguiller dans votre objectif santé, de construction musculaire, de prise de masse ou de perte de poids.",
-    "title proteins": "Protéines",
-    "explain proteins": "",
-    "title fat": "Lipides",
-    "explain fat": "",
-    "title carb": "Glucides",
-    "explain carb": ""
+  "title": {
+    "page": "Calculer ses calories",
+    "what are calories": "Qu’est-ce que les calories ? ",
+    "macronutrients": "Les macronutriments",
+    "proteins": "Protéines",
+    "fat": "Lipides",
+    "carb": "Glucides",
+    "calorie calculator":"Calculateur de calories"
+  },
+  "sub title": "Comment calculer son métabolisme basal ainsi que sa dépense énergétique ?",
+  "explain": {
+    "daily calorie requirements": "Les besoins caloriques quotidiens représentent la quantité de calories qu'il faut ajouter chaque jour pour assurer le bon fonctionnement du corps. Ils dépendent du poids, du sexe, de l'âge, de la taille et de l'activité physique. Afin de mieux contrôler son poids, il est donc nécessaire de calculer ses besoins caloriques quotidiens et de mettre en place une alimentation équilibrée et adaptée.",
+    "macronutrients": "Mais les calories ne sont pas les seules choses à prendre comptent. La répartition des macronutriments est à prendre en compte. Qu’est-ce que les macronutriments ? Les macronutriments regroupent les 3 groupes d’aliments destinés à fournir de l’énergie à l’organisme et à assurer ses fonctions vitales : les protéines, les glucides et les lipides. Chaque nutriment ayant une fonction distincte dans l’organisme, nous vous proposons de faire le point sur ces 3 catégories, afin de mieux vous aiguiller dans votre objectif santé, de construction musculaire, de prise de masse ou de perte de poids.",
+    "proteins": {
+      "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+      "goal":"This is some content from a media component. You can replace this with any content and adjust it as needed."
+    },
+    "fat": {
+      "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+      "goal":"This is some content from a media component. You can replace this with any content and adjust it as needed."
+    },
+    "carb": {
+      "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
+      "goal":"This is some content from a media component. You can replace this with any content and adjust it as needed."
+    }
+  },
+  "form": {
+    "gender": "Sexe",
+    "male": " Homme",
+    "woman": "Femme",
+    "age": "Age",
+    "size": "Taille",
+    "weight": "Poids",
+    "physical activity": "Activités physiques",
+    "objective": "Objectif",
+    "select": "Sélectionner ",
+    "muscle gain": "Prise de muscles",
+    "weightloss": "Perte de poids",
+    "maintenance": "Maintien",
+    "sedentary": "Sédentaire, pas d’activité physique",
+    "light": "Activité physique légère une à deux fois par semaine",
+    "moderate": "Activité physique modérée trois à quatre fois par semaine",
+    "daily moderate": "Activité physique modérée quotidienne",
+    "intense": "Activité physique intense six à sept fois par semaine",
+    "calculate": "Calculer"
+  }
 }

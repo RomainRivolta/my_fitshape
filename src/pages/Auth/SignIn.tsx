@@ -65,7 +65,7 @@ const SignIn = () => {
 
   return (
     <Account>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate className="row g-3">
         <h1 className="mb-2 text-center h3 ">{t("sign in")}</h1>
         <p className="mb-4 text-center">
           {t("sign in using your fitshape credentials")}.

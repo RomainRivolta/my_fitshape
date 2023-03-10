@@ -1,16 +1,17 @@
 {
-    "title": "Recettes",
-    "sub title": "",
-    "filter by meal":"Filtrer par repas",
-    "meal": "Repas",
-    "recipes": "Recettes",
-    "food currents":"Courants alimentaires",
-    "category":"Categorie",
-    "breakfast": "Petit-déjeuner",
-    "low carb": "Faible en glucides",
-    "post training": "Post-entraînement",
-    "snacks": "Collations",
-    "vegan": "Végan",
-    "vegetarian":"Végétarien",
-    "gluten free":"Sans gluten"
+    "title": {
+        "page": "Recettes",
+        "food currents":"Courants alimentaires",
+        "categories":"Categorie"
+    },
+    "filter":{
+        "breakfast": "Petit-déjeuner",
+        "low carb": "Faible en glucides",
+        "post training": "Post-entraînement",
+        "snacks": "Collations",
+        "vegan": "Végan",
+        "vegetarian":"Végétarien",
+        "gluten free":"Sans gluten"
+    }
+
 }

@@ -1,16 +1,17 @@
 {
-    "title": "Recipes",
-    "sub title": "",
-    "filter by meal":"Filter by meal",
-    "meal": "Meal",
-    "recipes": "Recipes",
-    "food currents":"Food currents",
-    "categories":"Categories",
-    "breakfast": "Breakfast",
-    "low carb": "Low carb",
-    "post training": "Post training",
-    "snacks": "Snacks",
-    "vegan": "Vegan",
-    "vegetarian": "Vegetarian",
-    "gluten free":"Gluten free"
+    "title": {
+        "page": "Recipes",
+        "food currents":"Food currents",
+        "categories":"Categories"
+    },
+    "filter":{
+        "breakfast": "Breakfast",
+        "low carb": "Low carb",
+        "post training": "Post training",
+        "snacks": "Snacks",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian",
+        "gluten free":"Gluten free"
+    }
+    
 }

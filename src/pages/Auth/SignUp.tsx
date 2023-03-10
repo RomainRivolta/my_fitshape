@@ -115,7 +115,7 @@ const SignUp = (props: any) => {
 
   return (
     <Account>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate className="row g-3">
         <h1 className="mb-2 text-center h3 ">{t("sign up")}</h1>
         <p className="mb-4 text-center">
           {t("complete the form below to get started fitshape")}.
