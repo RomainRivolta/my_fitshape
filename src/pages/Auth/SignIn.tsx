@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthContext } from "../../context/userAuthContext";
 import Button from "../../components/Button";
@@ -19,12 +19,12 @@ interface ErrorForm {
 const SignIn = () => {
   const { t } = useTranslation("auth");
 
-  const data = {
+  const data: IData = {
     email: "",
     password: "",
-  } as IData;
+  };
 
-  const [signupData, setSignupData] = useState(data);
+  const [signupData, setSignupData] = useState<IData>(data);
   const [error, setError] = useState<ErrorForm>();
   const { signIn } = useContext(AuthContext);
 
@@ -37,30 +37,31 @@ const SignIn = () => {
     };
 
     if (email === "") {
-      err.email = t("field required");
+      err.email = t("invalid.field required");
     }
     if (password === "") {
-      err.password = t("field required");
+      err.password = t("invalid.field required");
     }
     setError({ ...err });
     return Object.keys(error!).length;
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       if (isValid() === 0) {
         await signIn(email, password);
       }
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       setError(error);
       setSignupData({ ...data });
     }
   };
 
-  const handleChange = async (e: any) => {
-    setSignupData({ ...signupData, [e.target.name]: e.target.value });
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = e.target;
+    setSignupData({ ...signupData, [name]: value });
   };
 
   return (

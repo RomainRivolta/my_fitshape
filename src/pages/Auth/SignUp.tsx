@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthContext } from "../../context/userAuthContext";
 import { useNavigate } from "react-router-dom";
@@ -27,15 +27,15 @@ interface ErrorForm {
 
 const SignUp = (props: any) => {
   const { t } = useTranslation("auth");
-  const data = {
+  const data: IData = {
     lastname: "",
     firstname: "",
     email: "",
     password: "",
     confirmPassword: "",
-  } as IData;
+  };
 
-  const [signinData, setSigninData] = useState(data);
+  const [signinData, setSigninData] = useState<IData>(data);
   const [error, setError] = useState<ErrorForm>();
   const { signUp } = useContext(AuthContext);
 
@@ -58,35 +58,35 @@ const SignUp = (props: any) => {
     };
 
     if (firstname === "") {
-      err.firstname = t("field required");
+      err.firstname = t("invalid.field required");
     } else {
       if (!validName(firstname)) {
-        err.firstname = t("fisrt name invalid name");
+        err.firstname = t("invalid.fisrt name invalid name");
       }
     }
     if (lastname === "") {
-      err.lastname = t("field required");
+      err.lastname = t("invalid.field required");
     } else {
       if (!validName(firstname)) {
-        err.lastname = t("last name invalid name");
+        err.lastname = t("invalid.last name invalid name");
       }
     }
     if (email === "") {
-      err.email = t("field required");
+      err.email = t("invalid.field required");
     }
     if (password === "") {
-      err.password = t("field required");
+      err.password = t("invalid.field required");
     } else {
       let regex = passwordValidRegex;
       if (!regex.test(password)) {
-        err.password = t("security password");
+        err.password = t("invalid.security password");
       }
     }
     if (confirmPassword === "") {
-      err.confirmPassword = t("field required");
+      err.confirmPassword = t("invalid.field required");
     } else {
       if (password !== confirmPassword) {
-        err.confirmPassword = t("password does not match");
+        err.confirmPassword = t("invalid.password does not match");
       }
     }
 
@@ -94,20 +94,20 @@ const SignUp = (props: any) => {
     return Object.keys(error!).length;
   };
 
-  const handleChange = (e: any) => {
-    setSigninData({ ...signinData, [e.target.name]: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const {name,value} = e.target;
+    setSigninData({ ...signinData, [name]:value });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // const { email, password } = signinData;
     try {
       if (isValid() === 0) {
-        alert("valid");
         await signUp(email, password);
       }
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       setError(error);
       setSigninData({ ...data });
     }

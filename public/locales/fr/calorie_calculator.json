@@ -6,7 +6,7 @@
     "proteins": "Protéines",
     "fat": "Lipides",
     "carb": "Glucides",
-    "calorie calculator":"Calculateur de calories"
+    "calorie calculator": "Calculateur de calories"
   },
   "sub title": "Comment calculer son métabolisme basal ainsi que sa dépense énergétique ?",
   "explain": {
@@ -14,15 +14,15 @@
     "macronutrients": "Mais les calories ne sont pas les seules choses à prendre comptent. La répartition des macronutriments est à prendre en compte. Qu’est-ce que les macronutriments ? Les macronutriments regroupent les 3 groupes d’aliments destinés à fournir de l’énergie à l’organisme et à assurer ses fonctions vitales : les protéines, les glucides et les lipides. Chaque nutriment ayant une fonction distincte dans l’organisme, nous vous proposons de faire le point sur ces 3 catégories, afin de mieux vous aiguiller dans votre objectif santé, de construction musculaire, de prise de masse ou de perte de poids.",
     "proteins": {
       "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
-      "goal":"This is some content from a media component. You can replace this with any content and adjust it as needed."
+      "goal": "This is some content from a media component. You can replace this with any content and adjust it as needed."
     },
     "fat": {
       "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
-      "goal":"This is some content from a media component. You can replace this with any content and adjust it as needed."
+      "goal": "This is some content from a media component. You can replace this with any content and adjust it as needed."
     },
     "carb": {
       "intro": "But calories are not the only things to take into account. The distribution of macronutrients should be taken into account. What are acronutrients? Macronutrients are the three groups of foods intended to provide energy to the body and ensure its vital functions: proteins, carbohydrates and fats. Since each nutrient has a distinct function in the body, we suggest you take stock of these 3 categories, in order to better guide you in your health goals, muscle building, weight gain or weight loss.",
-      "goal":"This is some content from a media component. You can replace this with any content and adjust it as needed."
+      "goal": "This is some content from a media component. You can replace this with any content and adjust it as needed."
     }
   },
   "form": {
@@ -44,5 +44,8 @@
     "daily moderate": "Activité physique modérée quotidienne",
     "intense": "Activité physique intense six à sept fois par semaine",
     "calculate": "Calculer"
+  },
+  "invalid": {
+    "field required": "This field is required"
   }
 }

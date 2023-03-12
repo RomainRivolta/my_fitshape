@@ -6,7 +6,7 @@
     "proteins": "Proteins",
     "fat": "Fat",
     "carb": "Carb",
-    "calorie calculator":"Calorie calculator"
+    "calorie calculator": "Calorie calculator"
   },
   "sub title": "How to calculate his basic metabolic rate and energy consumption?",
   "explain": {
@@ -44,5 +44,8 @@
     "daily moderate": "Activité physique modérée quotidienne",
     "intense": "Intense physical activity six to seven times a week",
     "calculate": "Calculate"
+  },
+  "invalid": {
+    "field required": "This field is required"
   }
 }
